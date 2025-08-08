@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: ejada_postgres
+    environment:
+      POSTGRES_DB: ejada_db
+      POSTGRES_USER: ejada_user
+      POSTGRES_PASSWORD: ejada_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - springboot-net
+      - default
+
+#  springboot-app:
+#    build: .
+#    container_name: task_management_system
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgres
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ejada_db
+#      SPRING_DATASOURCE_USERNAME: ejada_user
+#      SPRING_DATASOURCE_PASSWORD: ejada_pass
+#    networks:
+#      - springboot-net
+
+volumes:
+  pgdata:
+
+networks:
+  springboot-net:
