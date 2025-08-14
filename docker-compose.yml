@@ -16,19 +16,19 @@ services:
       - springboot-net
       - default
 
-#  springboot-app:
-#    build: .
-#    container_name: task_management_system
-#    ports:
-#      - "8080:8080"
-#    depends_on:
-#      - postgres
-#    environment:
-#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ejada_db
-#      SPRING_DATASOURCE_USERNAME: ejada_user
-#      SPRING_DATASOURCE_PASSWORD: ejada_pass
-#    networks:
-#      - springboot-net
+  springboot-app:
+    build: .
+    container_name: task_management_system
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ejada_db
+      SPRING_DATASOURCE_USERNAME: ejada_user
+      SPRING_DATASOURCE_PASSWORD: ejada_pass
+    networks:
+      - springboot-net
 
 volumes:
   pgdata:
